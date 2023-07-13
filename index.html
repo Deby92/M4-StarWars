@@ -14,22 +14,15 @@
 <body>
     <h1>Star Wars Character Info</h1>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4" id="character-info-1">
-        <!-- Sección 1: Los bloques de personajes se agregarán dinámicamente aquí -->
+    <div id="character-container">
+        <button id="show-characters-1">Mostrar Personajes 1-5</button>
+        <button id="show-characters-2">Mostrar Personajes 6-10</button>
+        <button id="show-characters-3">Mostrar Personajes 11-15</button>
       </div>
-      <div class="col-md-4" id="character-info-2">
-        <!-- Sección 2: Los bloques de personajes se agregarán dinámicamente aquí -->
-      </div>
-      <div class="col-md-4" id="character-info-3">
-        <!-- Sección 3: Los bloques de personajes se agregarán dinámicamente aquí -->
-      </div>
-    </div>
-  </div>
-    <button onclick="showCharacters(0, 5, characterInfoElement1)">Show Characters 0-5</button>
-  <button onclick="showCharacters(5, 10, characterInfoElement2)">Show Characters 5-10</button>
-  <button onclick="showCharacters(10, 15, characterInfoElement3)">Show Characters 10-15</button>
+      <div id="character-info-1"></div>
+      <div id="character-info-2"></div>
+      <div id="character-info-3"></div>
+  
     <script src="./assets/js/logica.js"></script>
 </body>
 
