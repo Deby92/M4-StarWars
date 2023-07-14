@@ -14,14 +14,35 @@
 <body>
     <h1>Star Wars Character Info</h1>
   
-    <div id="character-container">
-        <button id="show-characters-1">Mostrar Personajes 1-5</button>
-        <button id="show-characters-2">Mostrar Personajes 6-10</button>
-        <button id="show-characters-3">Mostrar Personajes 11-15</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <button id="show-characters-1" class="btn btn-primary mt-3">Mostrar personajes</button>
+        </div>
+        <div class="col-md-8">
+          <div id="character-info-1" class="row"></div>
+        </div>
       </div>
-      <div id="character-info-1"></div>
-      <div id="character-info-2"></div>
-      <div id="character-info-3"></div>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <button id="show-characters-2" class="btn btn-primary mt-3">Mostrar personajes</button>
+        </div>
+        <div class="col-md-8">
+          <div id="character-info-2" class="row"></div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <button id="show-characters-3" class="btn btn-primary mt-3">Mostrar personajes</button>
+        </div>
+        <div class="col-md-8">
+          <div id="character-info-3" class="row"></div>
+        </div>
+      </div>
+    </div>
+    
   
     <script src="./assets/js/logica.js"></script>
 </body>

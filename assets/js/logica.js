@@ -32,15 +32,15 @@ function showCharacters(startIndex, endIndex, element) {
   }
 }
 
-async function fetchCharacters() {
+function* fetchCharacters() {
   characters = [];
 
   let page = 1;
-  let url = `${URL_CHARACTERS}?page=${3}`;
+  let url = `${URL_CHARACTERS}${2}`;
 
   while (url) {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = yield fetch(url);
+    const data = yield response.json();
     characters = characters.concat(data.results);
     url = data.next;
   }
@@ -51,17 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
   characterInfoElement2 = document.getElementById('character-info-2');
   characterInfoElement3 = document.getElementById('character-info-3');
 
-  fetchCharacters().then(() => {
-    document.getElementById('show-characters-1').addEventListener('click', () => {
-      showCharacters(0, 5, characterInfoElement1);
-    });
+  const charactersGenerator = fetchCharacters();
+  let charactersResponse = charactersGenerator.next();
 
-    document.getElementById('show-characters-2').addEventListener('click', () => {
-      showCharacters(5, 10, characterInfoElement2);
-    });
+  function handleResponse(response) {
+    if (!response.done) {
+      response.value.then(data => {
+        charactersResponse = charactersGenerator.next(data);
+        handleResponse(charactersResponse);
+      });
+    } else {
+      document.getElementById('show-characters-1').addEventListener('click', () => {
+        showCharacters(0, 5, characterInfoElement1);
+      });
 
-    document.getElementById('show-characters-3').addEventListener('click', () => {
-      showCharacters(10, 15, characterInfoElement3);
-    });
-  });
+      document.getElementById('show-characters-2').addEventListener('click', () => {
+        showCharacters(6, 11, characterInfoElement2);
+      });
+
+      document.getElementById('show-characters-3').addEventListener('click', () => {
+        showCharacters(12, 17, characterInfoElement3);
+      });
+    }
+  }
+
+  handleResponse(charactersResponse);
 });
