@@ -8,8 +8,8 @@ h1 {
 .spinner {
   text-align: center;
   display: none;
-  color: yellow;
-  
+  color: rgb(223, 173, 12);
+  font-size: xxx-large;
 }
 .row {
     display: flex !important;
