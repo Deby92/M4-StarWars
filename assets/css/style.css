@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    background-color: black;
+    background: linear-gradient(to right, #200122, #530202);
 }
 h1 {
   font-family: 'Press Start 2P', cursive;

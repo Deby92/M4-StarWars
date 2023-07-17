@@ -3,23 +3,23 @@ const URL_CHARACTERS = URL_BASE + 'api/people/?page=';
 let characterInfoElement1, characterInfoElement2, characterInfoElement3;
 let characters = [];
 
-function createCharacterBlock(character) {
-  const characterBlock = document.createElement('div');
-  characterBlock.classList.add('character-block');
+function createCardBlock(character) {
+  const cardBlock = document.createElement('div');
+  cardBlock.classList.add('card');
 
   const nameElement = document.createElement('h3');
   nameElement.textContent = character.name;
-  characterBlock.appendChild(nameElement);
+  cardBlock.appendChild(nameElement);
 
   const heightElement = document.createElement('p');
   heightElement.textContent = `Altura: ${character.height} cm`;
-  characterBlock.appendChild(heightElement);
+  cardBlock.appendChild(heightElement);
 
   const weightElement = document.createElement('p');
   weightElement.textContent = `Peso: ${character.mass} kg`;
-  characterBlock.appendChild(weightElement);
+  cardBlock.appendChild(weightElement);
 
-  return characterBlock;
+  return cardBlock;
 }
 
 function showCharacters(startIndex, endIndex, element) {
@@ -27,8 +27,8 @@ function showCharacters(startIndex, endIndex, element) {
 
   for (let i = startIndex; i < endIndex; i++) {
     const character = characters[i];
-    const characterBlock = createCharacterBlock(character);
-    element.appendChild(characterBlock);
+    const cardBlock = createCardBlock(character);
+    element.appendChild(cardBlock);
   }
 }
 
