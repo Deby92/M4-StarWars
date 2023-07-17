@@ -5,7 +5,7 @@ let characters = [];
 
 function createCardBlock(character) {
   const cardBlock = document.createElement('div');
-  cardBlock.classList.add('card');
+  cardBlock.classList.add('carBlock');
 
   const nameElement = document.createElement('h3');
   nameElement.textContent = character.name;
@@ -30,6 +30,25 @@ function showCharacters(startIndex, endIndex, element) {
     const cardBlock = createCardBlock(character);
     element.appendChild(cardBlock);
   }
+  hideSpinner();
+}
+
+function showSpinner() {
+  const spinnerElement = document.getElementById('spinner');
+  spinnerElement.style.display = 'block';
+
+  characterInfoElement1.style.display = 'none';
+  characterInfoElement2.style.display = 'none';
+  characterInfoElement3.style.display = 'none';
+}
+
+function hideSpinner() {
+  const spinnerElement = document.getElementById('spinner');
+  spinnerElement.style.display = 'none';
+
+  characterInfoElement1.style.display = 'block';
+  characterInfoElement2.style.display = 'block';
+  characterInfoElement3.style.display = 'block';
 }
 
 function* fetchCharacters() {
@@ -57,11 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleResponse(response) {
     if (!response.done) {
+      showSpinner();
+
       response.value.then(data => {
         charactersResponse = charactersGenerator.next(data);
         handleResponse(charactersResponse);
       });
     } else {
+      hideSpinner();
+      
       document.getElementById('show-characters-1').addEventListener('mouseover', () => {
         showCharacters(0, 5, characterInfoElement1);
       });
