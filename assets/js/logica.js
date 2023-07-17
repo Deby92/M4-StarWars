@@ -12,11 +12,11 @@ function createCharacterBlock(character) {
   characterBlock.appendChild(nameElement);
 
   const heightElement = document.createElement('p');
-  heightElement.textContent = `Height: ${character.height} cm`;
+  heightElement.textContent = `Altura: ${character.height} cm`;
   characterBlock.appendChild(heightElement);
 
   const weightElement = document.createElement('p');
-  weightElement.textContent = `Weight: ${character.mass} kg`;
+  weightElement.textContent = `Peso: ${character.mass} kg`;
   characterBlock.appendChild(weightElement);
 
   return characterBlock;
@@ -43,6 +43,7 @@ function* fetchCharacters() {
     const data = yield response.json();
     characters = characters.concat(data.results);
     url = data.next;
+    console.log('data', data);
   }
 }
 
@@ -61,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
         handleResponse(charactersResponse);
       });
     } else {
-      document.getElementById('show-characters-1').addEventListener('click', () => {
+      document.getElementById('show-characters-1').addEventListener('mouseover', () => {
         showCharacters(0, 5, characterInfoElement1);
       });
 
-      document.getElementById('show-characters-2').addEventListener('click', () => {
+      document.getElementById('show-characters-2').addEventListener('mouseover', () => {
         showCharacters(6, 11, characterInfoElement2);
       });
 
-      document.getElementById('show-characters-3').addEventListener('click', () => {
+      document.getElementById('show-characters-3').addEventListener('mouseover', () => {
         showCharacters(12, 17, characterInfoElement3);
       });
     }

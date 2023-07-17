@@ -1,0 +1,64 @@
+body {
+    box-sizing: border-box;
+    background-color: black;
+}
+h1 {
+  font-family: 'Press Start 2P', cursive;
+}
+.row {
+    display: flex;
+    flex-wrap:nowrap;
+}
+.col-md-2 {
+    animation:blur-in-expand 0.4s linear both} @keyframes blur-in-expand{0%{transform:scale(0);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}
+  }
+.container {
+  font-family: 'Tektur', cursive;
+}
+.timeline-container {
+    position: relative;
+  }
+  
+  .timeline {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    transform: translateY(-50%);
+  }
+  
+  .line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+  }
+  
+  .point {
+    position: absolute;
+    top: 50%;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .text {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    text-align: right;
+    font-size: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .container {
+    position: relative;
+  }
+  
